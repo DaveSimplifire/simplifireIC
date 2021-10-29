@@ -1,0 +1,43 @@
+type User {
+  id: ID!
+  first_name: String
+  second_name: String
+  email: String!
+  password: String!
+  verified: Boolean!
+  company_name: String
+  created_at: DateTime!
+  updated_at: DateTime
+  job_title: String
+  user_keys: [UserKeys!] @ relation
+  document_versions: [DocumentVersion] @relation(name: "document_version")
+  document_users: [DocumentUser] @relation(name: "user_document")
+}
+
+type DocumentVersion {
+    id: ID!
+    document_id: String!
+    User: User! @relation(name: "user_document")
+    Document: Document! @relation(name: "user_version")
+    content: String
+    created_at: DateTime!
+    updated_at: DateTime
+    delated_at: DateTime
+}
+
+type DocumentUser {
+    id: ID
+    document_id: String! @relation(name: "user_document")
+    Owner: User! @relation (name: "document_user")
+}
+
+ type Document {
+  id: ID!
+  name: String!
+  status: String!
+  content: String!
+  document_versions: [DocumentVersion!] @relation(name: "document_version")
+  document_users: [DocumentUser] (name: "document_user")
+}
+
+  
