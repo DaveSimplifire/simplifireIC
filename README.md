@@ -1,6 +1,6 @@
 # simplifireIC
 
-Welcome to your the simplifireIC project which is a proof-of-concept built upon the internet computer. 
+Welcome to the simplifireIC project which is a proof-of-concept built upon the internet computer. 
 
 The following documentation, relevant for the IC platform, is available online:
 
